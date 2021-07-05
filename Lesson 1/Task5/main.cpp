@@ -4,14 +4,14 @@ using namespace std;
 
 int main()
 {
-    int first_number = 0, second_number = 0, act = 0, result = 0;
+    int first_number = 0, second_number = 0, result = 0;
     cout << "Vvedite pervoe chislo: ";
     cin >> first_number;
     cout << "Vvedite vtoroe chislo: ";
     cin >> second_number;
     cout << "Vvedite deistvie: ";
-    cin >> act;
-    switch(act) {
+    cin >> result;
+    switch(result) {
     case 1:
         result = first_number + second_number;
         break;
