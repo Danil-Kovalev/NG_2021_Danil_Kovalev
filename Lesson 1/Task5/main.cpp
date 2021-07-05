@@ -24,6 +24,9 @@ int main()
     case 4:
         result = first_number / second_number;
         break;
+    default:
+        result = 0;
+        break;
     }
     cout << "Resultat: " << result;
 }
