@@ -31,12 +31,15 @@ int main()
         if (temperature >= 500 && temperature < 600) {
             cout << "[CORE]: Overheat mode";
         }
-        if (temperature >= 600 && temperature < 700) {
+        else if (temperature >= 600 && temperature < 700) {
             cout << "[CORE]: Cooldown required";
         }
-        if (temperature >= 700) {
+        else if (temperature >= 700) {
             cout << "[CORE]: Cooldowm started!";
         }
+        break;
+    default:
+        cout << "Error...";
         break;
     }
 }
