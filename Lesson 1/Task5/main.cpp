@@ -11,22 +11,24 @@ int main()
     cin >> second_number;
     cout << "Vvedite deistvie: ";
     cin >> result;
-    switch(result) {
-    case 1:
-        result = first_number + second_number;
-        break;
-    case 2:
-        result = first_number - second_number;
-        break;
-    case 3:
-        result = first_number * second_number;
-        break;
-    case 4:
-        result = first_number / second_number;
-        break;
-    default:
-        result = 0;
-        break;
+    if (result > 0 && result < 5) {
+        switch(result) {
+        case 1:
+            result = first_number + second_number;
+            break;
+        case 2:
+            result = first_number - second_number;
+            break;
+        case 3:
+            result = first_number * second_number;
+            break;
+        case 4:
+            result = first_number / second_number;
+            break;
+        }
+        cout << "Resultat: " << result;
     }
-    cout << "Resultat: " << result;
+    else {
+        cout << "Error...";
+    }
 }
