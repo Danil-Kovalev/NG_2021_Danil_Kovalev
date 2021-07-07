@@ -5,13 +5,13 @@ using namespace std;
 int main()
 {
     int first_number = 0, second_number = 0, act = 0;
-    cout << "Vvedite pervoe chislo: ";
+    cout << "Enter first number: ";
     cin >> first_number;
-    cout << "Vvedite vtoroe chislo: ";
+    cout << "Enter second number: ";
     cin >> second_number;
-    cout << "Vvedite deistvie: ";
+    cout << "Enter action 1 to 4 (1 - for plus, 2 - for minus, 3 - for multiplication, 4 - division): ";
     cin >> act;
-    cout << "Resultat: ";
+    cout << "Result: ";
     switch(act) {
     case 1:
         cout << first_number + second_number;
