@@ -1,0 +1,12 @@
+*.pro.user*
+*/build/*
+*/obj*
+*/bin*
+*/.vs*
+*.orig
+*.exe
+*.o
+*.layout
+*.depend
+*.cbp
+*.pro*
