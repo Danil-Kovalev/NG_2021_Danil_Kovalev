@@ -16,10 +16,9 @@ int main()
         }
         cout << endl;
     }
-    for (star = 1; star == 1; star--) {
-        for (space = inputUser; space > star; space--) {
-            cout << " ";
-        }
-        cout << "*";
+    for (space = inputUser; space > 1; space--) {
+        cout << " ";
     }
+    cout << "*";
 }
+
