@@ -8,14 +8,12 @@ int main()
     int temperature = 0, mode = 0;
     cout << "Select mode: ";
     cin >> mode;
+    cout << "Enter temperature: ";
+    cin >> temperature;
     switch(mode) {
     case 1:
-        cout << "Enter temperature: ";
-        cin >> temperature;
         break;
     case 2:
-        cout << "Enter temperature: ";
-        cin >> temperature;
         cout <<  "[CORE]: Using default configuration" << endl;
         if (temperature == 300) {
             cout << "[CORE]: Bad configuration detected. Stopping down core";
