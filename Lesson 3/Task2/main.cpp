@@ -9,7 +9,7 @@ int main()
     for (int i = 0; i < 10; i++) {
         allCards[i] = 0;
     }
-    for ( ; ;) {
+    while (true) {
         for (int i =0; i < 10; i++) {
             cout << allCards[i] << " ";
         }
