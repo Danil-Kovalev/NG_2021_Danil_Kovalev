@@ -9,8 +9,9 @@ int main()
     {
         cout << "Enter " << i + 1 << " number: ";
         cin >> inputUser[i];
-        if (maxNumber < inputUser[i])
+        if (maxNumber < inputUser[i]) {
             maxNumber = inputUser[i];
+        }
     }
     for (int i = 0; i < maxNumber; i++)
     {
@@ -19,8 +20,9 @@ int main()
             {
                 cout << "*";
             }
-            else
+            else {
                 cout << " ";
+            }
         }
         cout << endl;
     }
