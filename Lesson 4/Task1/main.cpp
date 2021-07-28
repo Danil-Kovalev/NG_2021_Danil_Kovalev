@@ -15,7 +15,7 @@ int main()
                 words++;
             }
         }
-        else if ((inputUser[i] >= 0 && inputUser[i] <= 64) || (inputUser[i] >= 91 && inputUser[i] <= 96) || (inputUser[i] >= 123 && inputUser[i] <= 126) || inputUser[i] == ' ') {
+        else if ((inputUser[i] >= ' ' && inputUser[i] <= '@') || (inputUser[i] >= '[' && inputUser[i] <= '`') || (inputUser[i] >= '{' && inputUser[i] <= '-')) {
             count = 0;
         }
         i++;
