@@ -7,7 +7,7 @@ void getInputUser (char inputUser [100]) {
     cin.getline(inputUser, 100);
 }
 
-int countWord (char inputUser []) {
+int countWord (char inputUser [100]) {
     int count = 0, words = 0, i = 0;
     while (inputUser[i] != 0) {
         if(count == 0) {
