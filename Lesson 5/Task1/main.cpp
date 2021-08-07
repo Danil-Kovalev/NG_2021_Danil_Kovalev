@@ -8,15 +8,23 @@ int getInputUser(int inputUser = 0) {
     return inputUser;
 }
 
+void drawSpace (int inputUser = 0) {
+    int i = 0;
+    for (int space = inputUser - 1; space > i; space--) {
+        cout << " ";
+    }
+}
+
+void drawStar (int i = 0) {
+    for (int star = 0; star <= i * 2; star++) {
+        cout << "*";
+    }
+}
+
 void drawBranches (int inputUser = 0) {
-    int space = 0, star = 0;
     for (int i = 0; i < inputUser; i++) {
-        for (space = inputUser - 1; space > i; space--) {
-            cout << " ";
-        }
-        for (star = 0; star <= i * 2; star++) {
-            cout << "*";
-        }
+        drawSpace(inputUser);
+        drawStar(i);
         cout << endl;
     }
 }
