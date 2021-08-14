@@ -10,18 +10,11 @@ int main()
     cin >> mode;
     cout << "Enter temperature: ";
     cin >> temperature;
-    switch(mode) {
-    case 1:
-        break;
-    case 2:
+    if (mode == 2) {
         cout <<  "[CORE]: Using default configuration" << endl;
         if (temperature == 300) {
             cout << "[CORE]: Bad configuration detected. Stopping down core";
         }
-        break;
-    default:
-        cout << "Error...";
-        break;
     }
     if (temperature >= 500 && temperature < 600) {
         cout << "[CORE]: Overheat mode";
