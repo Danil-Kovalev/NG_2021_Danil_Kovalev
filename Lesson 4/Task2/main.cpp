@@ -20,13 +20,13 @@ int main()
                 start = i - count + 1;
             }
         }
-        else {
+        else
+        {
             count = 0;
         }
         i++;
     }
-    longestWord += start + 1;
-    for (int index = start; index < longestWord - 1; index++)
+    for (int index = start; index < longestWord + start; index++)
     {
         cout << inputUser[index];
     }
