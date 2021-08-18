@@ -17,7 +17,7 @@ int main()
         for (int j = 0; j < maxNumber - (inputUser[i] + j); j++) {
             cout << " ";
         }
-        for (int j = 0; j != inputUser[i]; j++) {
+        for (int j = 0; j < inputUser[i]; j++) {
             cout << "*";
         }
         cout << endl;
