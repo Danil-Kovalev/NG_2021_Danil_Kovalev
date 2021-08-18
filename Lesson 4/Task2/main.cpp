@@ -5,19 +5,29 @@ using namespace std;
 int main()
 {
     char inputUser[100];
-    string text, longestWord;
+    int longestWord = 0, count = 0, i = 0, start = 0;
     cout << "Enter the string: ";
     cin.getline(inputUser, 100);
-    for (int i = 0; i < inputUser[i]; i++) {
-        if ((inputUser[i] != ' ') && ((inputUser[i] >= 'a' && inputUser[i] <= 'z') || (inputUser[i] >= 'A' && inputUser[i] <= 'Z'))) {
-            text += inputUser[i];
+    cout << "Longest word: ";
+    while (inputUser[i] != 0)
+    {
+        if ((inputUser[i] >= 'a' && inputUser[i] <= 'z') || (inputUser[i] >= 'A' && inputUser[i] <= 'Z'))
+        {
+            count++;
+            if (longestWord < count)
+            {
+                longestWord = count;
+                start = i - count;
+            }
         }
         else {
-            text = "";
+            count = 0;
         }
-        if (longestWord.length() < text.length()) {
-            longestWord = text;
-        }
+        i++;
     }
-    cout << "Longest word: " << longestWord;
+    longestWord += start + 1;
+    for (int index = start; index < longestWord; index++)
+    {
+        cout << inputUser[index];
+    }
 }
