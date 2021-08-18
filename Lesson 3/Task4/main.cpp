@@ -14,9 +14,6 @@ int main()
             break;
     }
     for (int i = 0; i < numberBranches; i++) {
-        if (inputUser[i] == 0) {
-            break;
-        }
         for (int j = 0; j < maxNumber - (inputUser[i] + j); j++) {
             cout << " ";
         }
