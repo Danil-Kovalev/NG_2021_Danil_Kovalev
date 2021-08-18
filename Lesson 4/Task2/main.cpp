@@ -17,7 +17,7 @@ int main()
             if (longestWord < count)
             {
                 longestWord = count;
-                start = i - count;
+                start = i - count + 1;
             }
         }
         else {
@@ -26,7 +26,7 @@ int main()
         i++;
     }
     longestWord += start + 1;
-    for (int index = start; index < longestWord; index++)
+    for (int index = start; index < longestWord - 1; index++)
     {
         cout << inputUser[index];
     }
