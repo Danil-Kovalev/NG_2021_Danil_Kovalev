@@ -18,7 +18,7 @@ void RAM::setFrequency(float frequency)
 void RAM::showInfoRAM()
 {
     cout << "RAM: " << endl;
-    cout << "\tName:" << getName() << endl;
+    cout << "\tName: " << getName() << endl;
     cout << "\tSlot: " << getSlot() << endl;
     cout << "\tFrequency: " << getFrequency() << endl;
     cout << "\tPrice: " << getPrice() << endl << endl;

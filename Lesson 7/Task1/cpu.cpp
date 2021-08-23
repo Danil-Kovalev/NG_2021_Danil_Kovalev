@@ -19,7 +19,7 @@ void CPU::setHertz(float hertz)
 void CPU::showInfoCPU()
 {
     cout << "CPU: " << endl;
-    cout << "\tName:" << getName() << endl;
+    cout << "\tName: " << getName() << endl;
     cout << "\tSocket: " << getSocket() << endl;
     cout << "\tHertz: " << getHertz() << endl;
     cout << "\tPrice: " << getPrice() << endl << endl;

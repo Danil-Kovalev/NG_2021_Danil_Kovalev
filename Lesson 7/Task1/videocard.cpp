@@ -19,7 +19,7 @@ void Videocard::setFrequency(float frequency)
 void Videocard::showInfoVideocard()
 {
     cout << "Videocard: " << endl;
-    cout << "\tName:" << getName() << endl;
+    cout << "\tName: " << getName() << endl;
     cout << "\tSlot: " << getSlot() << endl;
     cout << "\tFrequency: " << getFrequency() << endl;
     cout << "\tPrice: " << getPrice() << endl << endl;

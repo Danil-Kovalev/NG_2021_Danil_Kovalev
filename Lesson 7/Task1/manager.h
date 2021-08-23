@@ -16,19 +16,21 @@ public:
     void addMotherboard (Motherboard motherboard);
     void addRAM (RAM ram);
 
+    void findComponents ();
+    void managerManagment ();
     void getInfo();
 
 private:
-    CPU cpus[4];
+    CPU cpus[3];
     int cpusAmount = 0;
 
-    Videocard videocards [4];
+    Videocard videocards [3];
     int videocardsAmount = 0;
 
-    Motherboard motherboards[4];
+    Motherboard motherboards[3];
     int motherboardsAmount = 0;
 
-    RAM rams[4];
+    RAM rams[3];
     int ramsAmount = 0;
 
 };
