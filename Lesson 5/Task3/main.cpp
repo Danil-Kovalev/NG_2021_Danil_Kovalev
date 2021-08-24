@@ -8,16 +8,10 @@ void getInputUser (char inputUser [100]) {
 }
 
 int countWord (char inputUser [100]) {
-    int count = 0, words = 0, i = 0;
+    int words = 0, i = 0;
     while (inputUser[i] != 0) {
-        if(count == 0) {
-            if ((inputUser[i] >= 'a' && inputUser[i] <= 'z') || (inputUser[i] >= 'A' && inputUser[i] <= 'Z')) {
-                count = 1;
-                words++;
-            }
-        }
-        else if ((inputUser[i] >= ' ' && inputUser[i] <= '@') || (inputUser[i] >= '[' && inputUser[i] <= '`') || (inputUser[i] >= '{' && inputUser[i] <= '-')) {
-            count = 0;
+        if (((inputUser[i] >= 'a' && inputUser[i] <= 'z') || (inputUser[i] >= 'A' && inputUser[i] <= 'Z')) && (!((inputUser[i + 1] >= 'a' && inputUser[i + 1] <= 'z') || (inputUser[i + 1] >= 'A' && inputUser[i + 1] <= 'Z')))) {
+            words++;
         }
         i++;
     }
