@@ -22,6 +22,9 @@ public slots:
     void editFile();
     void searchFile();
     void noteSelect();
+    void setYellowColorText();
+    void setBlackColorText();
+    void searchTagFile();
 
 private:
     Ui::MainWindow *ui;
