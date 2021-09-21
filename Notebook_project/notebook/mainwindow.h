@@ -23,8 +23,7 @@ public slots:
     void editFile();
     void searchFile();
     void noteSelect();
-    void setYellowColorText();
-    void setBlackColorText();
+    void setColorText();
     void searchNameFile();
     void searchTagFile();
 

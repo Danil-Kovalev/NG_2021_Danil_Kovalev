@@ -18,9 +18,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect (ui->b_edit, &QPushButton::clicked, this, &MainWindow::editFile);
     connect (ui->b_search, &QPushButton::clicked, this, &MainWindow::searchFile);
     connect (ui->listFiles, &QListWidget::itemSelectionChanged, this, &MainWindow::noteSelect);
-    connect(ui->b_color, &QPushButton::clicked, this, &MainWindow::setYellowColorText);
-    connect(ui->b_color2, &QPushButton::clicked, this, &MainWindow::setBlackColorText);
+    connect(ui->b_color, &QPushButton::clicked, this, &MainWindow::setColorText);
     connect(ui->b_searchName, &QPushButton::clicked, this, &MainWindow::searchNameFile);
+    connect(ui->b_searchTag, &QPushButton::clicked, this, &MainWindow::searchTagFile);
 }
 
 MainWindow::~MainWindow()
@@ -37,10 +37,12 @@ void MainWindow::createFile()
     file.close();
 
     QFile fileForTag("C:/book/fileForTag.txt");
+    QString tag = ui->tagFile->toPlainText();
+    QString name = ui->nameFile->toPlainText();
+    QString record = name + ":" + tag + "\n";
     if (!fileForTag.isOpen()) {
-        fileForTag.open(QIODevice::WriteOnly);
-        QString tag = ui->tagFile->toPlainText();
-        fileForTag.write(tag.toUtf8());
+        fileForTag.open(QIODevice::Append);
+        fileForTag.write(record.toUtf8());
         fileForTag.close();
     }
 }
@@ -50,7 +52,6 @@ void MainWindow::deleteFile()
     int noteNum = ui->listFiles->currentRow();
     QFile file("C:/book/" + ui->listFiles->item(noteNum)->text());
     file.open(QIODevice::WriteOnly);
-    QTextStream to(&file);
     file.remove();
     file.close();
     ui->listFiles->clear();
@@ -61,7 +62,7 @@ void MainWindow::editFile()
     int noteNum = ui->listFiles->currentRow();
     QFile file("C:/book/" + ui->listFiles->item(noteNum)->text());
     file.open(QFile::WriteOnly);
-    QString str = ui->userText->toPlainText();
+    QString str = ui->userText->toHtml();
     file.write(str.toUtf8());
     file.close();
 }
@@ -81,18 +82,16 @@ void MainWindow::noteSelect()
     file.open(QFile::ReadOnly);
     QTextStream stream(&file);
     QString buffer = stream.readAll();
-    ui->userText->setText(buffer);
+    ui->userText->setHtml(buffer);
     file.close();
 }
 
-void MainWindow::setYellowColorText()
+void MainWindow::setColorText()
 {
-    ui->userText->setTextColor(QColor ("yellow"));
-}
-
-void MainWindow::setBlackColorText()
-{
-    ui->userText->setTextColor(QColor("black"));
+    int red = ui->s_red->value();
+    int green = ui->s_green->value();
+    int blue = ui->s_blue->value();
+    ui->userText->setTextColor(QColor (red, green, blue));
 }
 
 void MainWindow::searchNameFile()
@@ -108,13 +107,18 @@ void MainWindow::searchNameFile()
 void MainWindow::searchTagFile()
 {
     ui->listFiles->clear();
-
     QFile nameFileForTag("C:/book/fileForTag.txt");
-    nameFileForTag.open(QFile::ReadOnly);
-    QTextStream stream(&nameFileForTag);
-    QString bufferForTag = stream.readAll();
 
-    QDir currentTag("C:/book");
-    QStringList searchNameTagFiles = currentTag.entryList(QDir::Files | QDir::NoDotAndDotDot);
-    ui->listFiles->addItems(searchNameTagFiles);
+    nameFileForTag.open(QFile::ReadOnly);
+    QString bufferForTag = nameFileForTag.readAll();
+    nameFileForTag.close();
+
+    QStringList recordsList = bufferForTag.split('\n');
+    QString searchTag = ui->tagFile->toPlainText();
+
+    for (QString record : recordsList) {
+        if (record.contains(searchTag)) {
+            ui->listFiles->addItem(record.split(':').first());
+        }
+    }
 }
