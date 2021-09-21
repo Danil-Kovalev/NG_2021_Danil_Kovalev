@@ -16,6 +16,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 public slots:
     void createFile();
     void deleteFile();
@@ -24,11 +25,10 @@ public slots:
     void noteSelect();
     void setYellowColorText();
     void setBlackColorText();
+    void searchNameFile();
     void searchTagFile();
 
 private:
     Ui::MainWindow *ui;
-
-    QListWidgetItem *m_file;
 };
 #endif // MAINWINDOW_H
