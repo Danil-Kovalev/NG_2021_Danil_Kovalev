@@ -31,10 +31,12 @@ MainWindow::~MainWindow()
 void MainWindow::createFile()
 {
     QFile file("C:/book/" + ui->nameFile->toPlainText());
-    file.open(QIODevice::WriteOnly);
-    QString stringUser = ui->userText->toPlainText();
-    file.write(stringUser.toUtf8());
-    file.close();
+    if(!file.isOpen()) {
+        file.open(QIODevice::WriteOnly);
+        QString stringUser = ui->userText->toPlainText();
+        file.write(stringUser.toUtf8());
+        file.close();
+    }
 
     QFile fileForTag("C:/book/fileForTag.txt");
     QString tag = ui->tagFile->toPlainText();
@@ -102,12 +104,15 @@ void MainWindow::searchNameFile()
     QStringList searchNameFiles = current.entryList(QStringList(nameFiles), QDir::Files | QDir::NoDotAndDotDot);
     ui->listFiles->addItems(searchNameFiles);
     ui->nameFile->clear();
+    ui->tagFile->clear();
 }
 
 void MainWindow::searchTagFile()
 {
     ui->listFiles->clear();
     QFile nameFileForTag("C:/book/fileForTag.txt");
+    QString name = ui->nameFile->toPlainText();
+    QFile file("C:/book" + name);
 
     nameFileForTag.open(QFile::ReadOnly);
     QString bufferForTag = nameFileForTag.readAll();
@@ -116,9 +121,13 @@ void MainWindow::searchTagFile()
     QStringList recordsList = bufferForTag.split('\n');
     QString searchTag = ui->tagFile->toPlainText();
 
-    for (QString record : recordsList) {
-        if (record.contains(searchTag)) {
-            ui->listFiles->addItem(record.split(':').first());
+    if (file.isOpen()) {
+        for (QString record : recordsList) {
+            if (record.contains(searchTag)) {
+                ui->listFiles->addItem(record.split(':').first());
+            }
         }
     }
+    ui->nameFile->clear();
+    ui->tagFile->clear();
 }
